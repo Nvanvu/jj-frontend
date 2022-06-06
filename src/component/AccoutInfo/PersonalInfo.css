@@ -1,0 +1,369 @@
+.thong-tin-ca-nhan {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.personal-0 {
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.personal-0>form {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.personal-1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.personal-1>span:nth-child(1) {
+    font-size: 30px;
+    color: rgb(179, 95, 16);
+}
+
+.personal-1>span:nth-child(2) {
+    font-size: 12px;
+}
+
+.personal-1>span>b {
+    font-size: 16px;
+    color: rgb(255, 153, 0);
+}
+
+.personal-1>span>span {
+    font-size: 16px;
+    color: rgb(255, 153, 0);
+}
+
+.personal-0>form {
+    width: 600px;
+    border: 1px solid rgb(255, 145, 0);
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 15px;
+    margin-top: 10px 0 0 0;
+}
+
+.ho-ten {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ho-ten>label:nth-child(1),
+.ho-ten>label:nth-child(2) {
+    width: 270px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 12px;
+    padding: 0 0 0 10px;
+    background-color: rgb(227, 247, 252);
+}
+
+.ho-ten>label:nth-child(1)>input,
+.ho-ten>label:nth-child(2)>input {
+    border: none;
+    outline: none;
+    height: 28px;
+    width: 240px;
+    box-sizing: border-box;
+    padding: 0 0 0 10px;
+    font-size: 14px;
+    color: rgb(161, 101, 10);
+    background-color: transparent;
+}
+
+.dia-chi-mail {
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(227, 247, 252);
+    box-sizing: border-box;
+    padding: 0 10px 0 10px;
+    margin: 10px 0 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.dia-chi-mail>label {
+    width: 100%;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.dia-chi-mail>label>span {
+    width: 70%;
+    height: 28px;
+    border: none;
+    outline: none;
+    color: rgb(161, 101, 10);
+    font-size: 16px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 4px 0 0 0;
+}
+
+.bac-hoc-cao-nhat {
+    width: 100%;
+    background-color: rgb(227, 247, 252);
+    height: 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 10px 0;
+}
+
+.bac-hoc-cao-nhat>select {
+    width: 95%;
+    box-sizing: border-box;
+    padding: 0 10px 0 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.kinh-nghiem {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px 0 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: rgb(227, 247, 252);
+}
+
+.kinh-nghiem>label {
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.kinh-nghiem>textarea {
+    width: 100%;
+    height: 150px;
+    box-sizing: border-box;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: rgb(131, 75, 12);
+    outline: none;
+    border: 1px solid rgb(241, 158, 63);
+}
+
+.gui-CV {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgb(227, 247, 252);
+}
+
+.gui-CV>label:nth-child(1) {
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 0 0 10px 0;
+}
+
+.gui-CV>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.gui-CV>div>label:nth-child(1) {
+    width: 150px;
+    height: 30px;
+    border: 1px solid rgb(255, 153, 0);
+    box-shadow: 0 6px rgb(187, 164, 138);
+    margin: 0 0 10px 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 15px 0 15px;
+    border-radius: 5px;
+    background-color: rgb(241, 252, 227);
+    cursor: pointer;
+}
+
+.gui-CV>div>label:nth-child(1):hover {
+    box-shadow: 0 4px rgb(124, 119, 115);
+    top: 2px;
+}
+
+.gui-CV>div>label:nth-child(1):active {
+    box-shadow: 0 0;
+    top: 6px;
+}
+
+.gui-CV>div>label:nth-child(1)>span {
+    font-size: 12px;
+    color: rgb(75, 47, 25);
+}
+
+.gui-CV>div>label:nth-child(1)>input {
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    width: 190px;
+}
+
+.gui-CV>div>label:nth-child(2) {
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 0 0 0 30px;
+    color: rgb(121, 77, 20);
+}
+
+.gui-CV>label:nth-child(3) {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+}
+
+.ghi-chu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(227, 247, 252);
+    border-radius: 5px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.ghi-chu>label {
+    font-size: 12px;
+    margin: 0 0 10px 0;
+}
+
+.ghi-chu>textarea {
+    border: 1px solid rgb(250, 122, 17);
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 14px;
+}
+
+.ghi-chu>textarea::placeholder {
+    font-size: 12px;
+    color: rgba(170, 166, 162, 0.473);
+}
+
+.cam-ket {
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(227, 247, 252);
+}
+
+.cam-ket>label {
+    height: 30px;
+    line-height: 30px;
+}
+
+.gui-thong-tin {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.gui-thong-tin>button {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(245, 172, 88);
+    border: 1px solid rgb(153, 105, 51);
+    margin: 20px 0 20px 0;
+    box-shadow: 0 6px rgb(212, 216, 205);
+    position: relative;
+}
+
+.gui-thong-tin>button:hover {
+    box-shadow: 0 4px rgb(143, 188, 186);
+    top: 2px;
+    cursor: pointer;
+}
+
+.gui-thong-tin>button:active {
+    box-shadow: 0 0;
+    top: 6px;
+    color: floralwhite;
+}
+
+.cam-ket>label:nth-child(2),
+.cam-ket>label:nth-child(3) {
+    width: auto;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    color: rgb(119, 71, 8);
+}
+
+.cam-ket>label:nth-child(2):hover,
+.cam-ket>label:nth-child(3):hover {
+    cursor: pointer;
+    color: rgb(63, 38, 5);
+}
+
+.cam-ket>label:nth-child(2)>i,
+.cam-ket>label:nth-child(3)>i {
+    height: 12px;
+    width: 12px;
+    display: inline-block;
+    border: 1px solid rgb(153, 105, 51);
+    position: relative;
+    margin: 0 5px;
+    border-radius: 4px;
+}
+
+.cam-ket>label:nth-child(2):hover i,
+.cam-ket>label:nth-child(3):hover i {
+    border: 1px solid red;
+}
+
+.cam-ket>label:nth-child(2)>input,
+.cam-ket>label:nth-child(3)>input {
+    display: none;
+}
+
+.cam-ket>label:nth-child(2)>input:checked+i::after,
+.cam-ket>label:nth-child(3)>input:checked+i::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 8px;
+    width: 8px;
+    border-radius: 2px;
+    background: rgb(173, 87, 6);
+}

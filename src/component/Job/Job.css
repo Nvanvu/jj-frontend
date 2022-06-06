@@ -1,0 +1,305 @@
+.job {
+    width: 100%;
+    height: auto;
+}
+
+.d-j-1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    background-color: rgb(172, 170, 168);
+}
+
+.d-j-2 {
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: rgb(250, 248, 246);
+    border-radius: 10px;
+}
+
+.job-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 15px 0 15px 0;
+    border-bottom: 1px solid rgb(197, 178, 165);
+}
+
+.job-title>span {
+    font-size: 30px;
+    color: rgb(71, 42, 25);
+}
+
+.notices,
+.ky-nang-can-thiet,
+.nang-luc-ung-tuyen,
+.ngay-nghi-phep,
+.thoi-gian-lam-viec,
+.noi-dung-cong-viec,
+.phuc-loi,
+.luong,
+.nganh-nghe,
+.ten-congty,
+.loi-tua,
+.hinh-thuc-tuyen-dung,
+.noi-lam-viec {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 0 10px 0;
+}
+
+.notices>span,
+.ky-nang-can-thiet>span,
+.nang-luc-ung-tuyen>span,
+.ngay-nghi-phep>span,
+.thoi-gian-lam-viec>span,
+.noi-dung-cong-viec>span,
+.phuc-loi>span,
+.luong>span,
+.nganh-nghe>span,
+.ten-congty>span,
+.loi-tua>span,
+.hinh-thuc-tuyen-dung>span,
+.noi-lam-viec>span {
+    height: 35px;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 10px 0 5px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* loi ********************************************/
+
+.ten-congty>span>span,
+.notices>span>span,
+.ky-nang-can-thiet>span>span,
+.nang-luc-ung-tuyen>span>span,
+.ngay-nghi-phep>span>span,
+.thoi-gian-lam-viec>span>span,
+.noi-dung-cong-viec>span>span,
+.phuc-loi>span>span,
+.luong>span>span,
+.nganh-nghe>span>span,
+.loi-tua>span>span,
+.hinh-thuc-tuyen-dung>span>span,
+.noi-lam-viec>span>span {
+    font-size: 14px;
+    color: red;
+    margin: 0 40px 0 0;
+}
+
+.phuc-loi>div,
+.nganh-nghe>.d-industry,
+.ten-congty>.d-j-5,
+.hinh-thuc-tuyen-dung>.d-recruitmentForm,
+.noi-lam-viec>.d-worklocation {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 0 0 5px 0;
+}
+
+.t-notices,
+.t-welcomeSkills,
+.t-requiredExperience,
+.t-holidayVacation,
+.t-workingHour,
+.t-jobDescription,
+.t-treatment,
+.t-preface,
+.t-recruitmentForm,
+.t-worklocation,
+.t-salary {
+    height: 250px;
+    margin: 0 10px 0 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 5px;
+    outline: none;
+    color: rgb(80, 49, 4);
+}
+
+.t-notices::placeholder,
+.t-welcomeSkills::placeholder,
+.t-requiredExperience::placeholder,
+.t-holidayVacation::placeholder,
+.t-workingHour::placeholder,
+.t-jobDescription::placeholder,
+.t-treatment::placeholder,
+.t-recruitmentForm::placeholder,
+.t-worklocation::placeholder,
+.t-salary::placeholder,
+.t-preface::placeholder {
+    font-size: 12px;
+    color: rgb(182, 180, 179);
+}
+
+.luong>div> {
+    width: 100%;
+}
+
+.luong>div>.l-salary {
+    width: 100%;
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px 0 10px 15px;
+}
+
+.luong>div>.l-salary>.i-salary {
+    width: 300px;
+    height: 30px;
+    outline: none;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid rgb(192, 167, 131);
+    color: rgb(158, 93, 9);
+    background-color: transparent;
+}
+
+.complete {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    border-bottom: 1px solid rebeccapurple;
+}
+
+.complete>span {
+    box-sizing: border-box;
+    padding: 10px 55px 20px 0;
+    font-size: 30px;
+    color: rgb(218, 21, 47);
+}
+
+.btn-submit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 30px 0 10px 0;
+}
+
+.btn-submit>button {
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid rgb(153, 97, 51);
+    box-shadow: 0 6px rgb(214, 214, 212);
+    background-color: rgb(250, 210, 149);
+    position: relative;
+}
+
+.btn-submit>button:hover {
+    cursor: pointer;
+    box-shadow: 0 4px rgb(122, 122, 122);
+    top: 2px;
+}
+
+.btn-submit>button:active {
+    box-shadow: 0 0;
+    top: 6px;
+    color: aliceblue;
+}
+
+.d-cancel {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0 10px 30px;
+}
+
+.d-cancel>label {
+    width: 100%;
+}
+
+.d-cancel>label>a {
+    color: rgb(160, 135, 119);
+    font-size: 12px;
+}
+
+.d-cancel>label>a:hover {
+    color: rgb(247, 46, 10);
+}
+
+
+/*  thoi gian lam viec */
+
+.thoi-gian-lam-viec>div {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0 10px 45px;
+}
+
+.thoi-gian-lam-viec>div>label {
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 0 20px 0 0;
+    color: rgb(153, 100, 51);
+}
+
+.thoi-gian-lam-viec>div>label>input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: rgb(153, 109, 51);
+}
+
+
+/*  Checkbox */
+
+.l-job {
+    width: auto;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: rgb(119, 71, 8);
+}
+
+.l-job:hover {
+    cursor: pointer;
+    color: rgb(63, 38, 5);
+}
+
+.i-job {
+    height: 12px;
+    width: 12px;
+    display: inline-block;
+    border: 1px solid rgb(97, 46, 5);
+    position: relative;
+    margin: 0 5px;
+    border-radius: 3px;
+}
+
+.l-job:hover .i-job {
+    border: 1px solid rgb(255, 145, 0);
+}
+
+.inp-job {
+    display: none;
+}
+
+.inp-job:checked+i::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 8px;
+    width: 8px;
+    border-radius: 2px;
+    background: rgb(173, 87, 6);
+}
