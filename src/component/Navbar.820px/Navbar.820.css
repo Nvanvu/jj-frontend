@@ -5,7 +5,7 @@
     z-index: 10000;
 }
 
-.content-820 {
+.d-820 {
     width: 100%;
     height: 50px;
     display: flex;
@@ -14,45 +14,29 @@
     border-bottom: 1px solid rgba(160, 157, 153, 0.514);
 }
 
-.content-820>span {
+.d-820>span {
     color: rgb(214, 130, 4);
     font-size: 25px;
     line-height: 50px;
     margin: 0 0 0 20px;
 }
 
-.content-820>span>a {
-    width: auto;
+.d-820>span>a {
     color: rgb(214, 130, 4);
 }
 
-.content-820>span>a>span {
-    font-size: 18px;
-}
-
-.content-820>div {
+.content-820 {
     display: flex;
     flex-direction: row;
 }
 
-.content-820>div>li>a {
-    height: 50px;
-    padding: 0 15px 0 15px;
-    line-height: 50px;
-    color: rgb(214, 130, 4);
-}
-
-.content-820>div>li:hover {
+.content-820>li:hover {
     background-color: rgb(231, 217, 208);
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
 
-.content-820>div>li>a:hover {
-    color: rgb(250, 138, 26);
-}
-
-.content-820>div>li>.active {
+.content-820>li>.active {
     height: 50px;
     padding: 0 15px 0 15px;
     line-height: 50px;
@@ -62,8 +46,13 @@
     border-top-right-radius: 15px;
 }
 
-@media (min-width:541px) {
-    div.navbar-820 {
-        display: block;
-    }
+.content-820>li>a {
+    height: 50px;
+    padding: 0 15px 0 15px;
+    line-height: 50px;
+    color: rgb(214, 130, 4);
+}
+
+.content-820>li>a:hover {
+    color: rgb(250, 138, 26);
 }

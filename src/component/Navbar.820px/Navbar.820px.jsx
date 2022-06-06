@@ -25,31 +25,43 @@ const Navbar820 = () => {
 
     return (
         <div className='navbar-820'>
-            <div className='content-820'>
+            <div className='d-820'>
                 <span>
                     <Link to='/'><b>J</b><span>OIN JAPAN</span> <FontAwesomeIcon icon={faHandshakeSimple} /></Link>
                 </span>
-                <div>
+                <div className='content-820'>
                     {user ?
                         <>
-                            <li><Link to='/'>{user.username}</Link></li>
-                            <li><NavLink to='/' activeClassNam='active'>
-                                <FontAwesomeIcon icon={faHouseUser} />
-                            </NavLink></li>
+                            <li>
+                                <Link to='/'>
+                                    {user.username}
+                                </Link>
+                            </li>
+                            <li>
+                                <NavLink to='/' activeClassNam='active'>
+                                    <FontAwesomeIcon icon={faHouseUser} />
+                                </NavLink>
+                            </li>
                             {
                                 user.role === 'user' ?
                                     <>
-                                        <li><NavLink to='/user' activeClassNam='active'>
-                                            <FontAwesomeIcon icon={faGear} />
-                                        </NavLink>
+                                        <li>
+                                            <NavLink to='/user' activeClassNam='active'>
+                                                <FontAwesomeIcon icon={faGear} />
+                                            </NavLink>
                                         </li>
 
                                     </>
                                     :
                                     <>
-                                        <li>
+                                        <li className='post-job'>
                                             <NavLink to='/job' activeClassNam='active'>
-                                                <FontAwesomeIcon icon={faBuildingUser} />
+                                                <span>Post&nbsp;Job</span>
+                                            </NavLink>
+                                        </li>
+                                        <li className='find-cv'>
+                                            <NavLink to='/find-cv' activeClassNam='active'>
+                                                <span>Find&nbsp;CV</span>
                                             </NavLink>
                                         </li>
                                     </>

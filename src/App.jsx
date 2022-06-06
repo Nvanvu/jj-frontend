@@ -12,9 +12,12 @@ import Home from './component/Home/Home';
 import Login from './component/Login/Login';
 import Register from './component/Register/Register';
 import About from './component/About/About';
+
 import Company from './component/Company/Company';
 import Job from './component/Job/Job';
 import JobSuccess from './component/Job/job.success';
+import FindCV from './component/FindCV/FindCV';
+
 import User from './component/User/User';
 
 import UserRoute from './component/Route/UserRoute';
@@ -71,6 +74,7 @@ function App() {
               <Route path='/company' element={<Company />} />
               <Route path='/job' element={<Job />} />
               <Route path='/job-success' element={<JobSuccess />} />
+              <Route path='/find-cv' element={<FindCV />} />
             </Route>
             <Route element={<UserRoute user={user} />}>
               <Route path='/user' element={<User />} />
