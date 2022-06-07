@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import request from '../../Api/request';
 import { createUserInfo } from '../../Redux/apiRequest';
+import { type } from '@testing-library/user-event/dist/type';
 
 
 const PersonalInfo = () => {
@@ -16,15 +17,77 @@ const PersonalInfo = () => {
     const [ten, setTen] = useState('');
     const [bangCapCaoNhat, setBangCapCaoNhat] = useState('');
     const [kinhNghiemLamViec, setKinhNghiemLamViec] = useState('');
+    const [congViecUngTuyen, setCongViecUngTuyen] = useState('');
+    const [viTriUngTuyen, setViTriUngTuyen] = useState('');
+
+    const [PR, setPR] = useState('');
+    const [dieuKhoanSuDung, setDieuKhoanSuDung] = useState('');
+    const [baoMatThongTin, setBaoMatThongTin] = useState('');
+    const [chuyenNganh, setChuyenNganh] = useState('');
+    const [mucLuongMongMuon, setMucLuongMongMuon] = useState('');
 
     const [file, setFile] = useState('');
     const [filename, setFilename] = useState('Choose File.');
 
-    const [ghiChu, setGhiChu] = useState('');
-
-    const [dieuKhoanSuDung, setDieuKhoanSuDung] = useState('');
-    const [baoMatThongTin, setBaoMatThongTin] = useState('');
-
+    const BangCap = [
+        { name: '大学卒' },
+        { name: '短期大学卒' },
+        { name: '専門学校卒' },
+        { name: '他' }
+    ]
+    const ChuyenNganh = [
+        { name: 'IT' },
+        { name: 'ゴム製品' },
+        { name: '産業用電力' },
+        { name: '機械' },
+        { name: '化学' },
+        { name: '農業' },
+        { name: '経済' },
+        { name: '銀行サービス' },
+        { name: '他の専攻' },
+    ]
+    const KinhNghiem = [
+        { name: '不経験' },
+        { name: '1-2年' },
+        { name: '3-4年' },
+        { name: '5-6年' },
+        { name: '7-8年' },
+        { name: '9-10年' },
+        { name: '11年以上' },
+    ]
+    const CongViecUngTuyen = [
+        { name: 'IT' },
+        { name: 'ゴム製品' },
+        { name: '産業用電力' },
+        { name: '機械' },
+        { name: '化学' },
+        { name: '農業' },
+        { name: '経済' },
+        { name: '銀行サービス' },
+        { name: '他の専攻' },
+    ]
+    const ViTri = [
+        { name: 'アルバイト' },
+        { name: '実習生' },
+        { name: '社員' },
+        { name: '課長' },
+        { name: '部長' },
+        { name: '社長' },
+        { name: '他の役職' },
+    ]
+    const MucLuong = [
+        { name: '10万円' },
+        { name: '10万円-20万円' },
+        { name: '20万円-30万円' },
+        { name: '30万円-40万円' },
+        { name: '40万円-50万円' },
+        { name: '50万円-60万円' },
+        { name: '60万円-70万円' },
+        { name: '70万円-80万円' },
+        { name: '80万円-90万円' },
+        { name: '90万円-100万円' },
+        { name: '100万円以上' },
+    ]
     useEffect(() => {
         if (!user) {
             navigate('/');
@@ -79,10 +142,14 @@ const PersonalInfo = () => {
             ten,
             bangCapCaoNhat,
             kinhNghiemLamViec,
+            congViecUngTuyen,
+            viTriUngTuyen,
             fileCV,
-            ghiChu,
+            PR,
             dieuKhoanSuDung,
-            baoMatThongTin
+            baoMatThongTin,
+            chuyenNganh,
+            mucLuongMongMuon
         }
         createUserInfo(newPersonalInfo, user.accessToken, navigate);
     }
@@ -102,68 +169,87 @@ const PersonalInfo = () => {
                         <label>メールアドレス<span>{user?.username}</span></label>
                     </div>
                     <div className='bac-hoc-cao-nhat'>
+                        <label>最終学歴</label>
                         <select onChange={e => setBangCapCaoNhat(e.target.value)}>
                             <option selected disabled>最終学歴を選択して下さい</option>
-                            <option value="大学卒">大学卒</option>
-                            <option value="短期大学卒">短期大学卒</option>
-                            <option value="専門学校卒">専門学校卒</option>
-                            <option value="他">他</option>
+                            {BangCap.map(type => {
+                                return (
+                                    <>
+                                        <option key={type.name} value={type.name}>{type.name}</option>
+                                    </>
+                                )
+                            })}
                         </select>
                     </div>
                     <div className='chuyen-nganh'>
                         <label>専攻</label>
-                        <select onChange={e => setKinhNghiemLamViec(e.target.value)}>
+                        <select onChange={e => setChuyenNganh(e.target.value)}>
                             <option selected disabled>専攻を選択して下さい</option>
-                            <option value="IT">IT</option>
-                            <option value="ゴム製品">ゴム製品</option>
-                            <option value="産業用電力">産業用電力</option>
-                            <option value="機械">機械</option>
-                            <option value="化学">化学</option>
-                            <option value="農業">農業</option>
-                            <option value="経済">経済</option>
-                            <option value="銀行サービス">銀行サービス</option>
-                            <option value="他の専攻">他の専攻</option>
+                            {ChuyenNganh.map(type => {
+                                return (
+                                    <>
+                                        <option key={type.name} value={type.name}>{type.name}</option>
+
+                                    </>
+                                )
+                            })}
                         </select>
                     </div>
                     <div className='kinh-nghiem'>
                         <label>経験年数</label>
                         <select onChange={e => setKinhNghiemLamViec(e.target.value)}>
                             <option selected disabled>経験年数を選択して下さい</option>
-                            <option value="0">不経験</option>
-                            <option value="12">1-2年</option>
-                            <option value="34">3-4年</option>
-                            <option value="56">5-6年</option>
-                            <option value="78">7-8年</option>
-                            <option value="90">9-10年</option>
-                            <option value="99">11年以上</option>
+                            {
+                                KinhNghiem.map(type => {
+                                    return (
+                                        <>
+                                            <option key={type.name} value={type.name}>{type.name}</option>
+                                        </>
+                                    )
+                                })
+                            }                        </select>
+                    </div>
+                    <div className='cong-viec-ung-tuyen'>
+                        <label>職種応募</label>
+                        <select onChange={e => setCongViecUngTuyen(e.target.value)}>
+                            <option selected disabled>職種を選択して下さい</option>
+                            {
+                                CongViecUngTuyen.map(type => {
+                                    return (
+                                        <>
+                                            <option value={type.name}>{type.name}</option>
+                                        </>
+                                    )
+                                })
+                            }
                         </select>
                     </div>
                     <div className='vi-tri'>
                         <label>役職</label>
-                        <select onChange={e => setKinhNghiemLamViec(e.target.value)}>
+                        <select onChange={e => setViTriUngTuyen(e.target.value)}>
                             <option selected disabled>役職を選択して下さい</option>
-                            <option value="0">社員</option>
-                            <option value="12">課長</option>
-                            <option value="34">部長</option>
-                            <option value="56">社長</option>
-                            <option value="78">他の役職</option>
+                            {
+                                ViTri.map(type => {
+                                    return (
+                                        <>
+                                            <option value={type.name}>{type.name}</option>
+                                        </>
+                                    )
+                                })
+                            }
                         </select>
                     </div>
                     <div className='muc-luong'>
                         <label>給料希望</label>
-                        <select>
+                        <select onChange={e => setMucLuongMongMuon(e.target.value)}>
                             <option selected disabled>給料希望を選択して下さい</option>
-                            <option value="10">10万円</option>
-                            <option value="102">10万円-20万円</option>
-                            <option value="203">20万円-30万円</option>
-                            <option value="304">30万円-40万円</option>
-                            <option value="405">40万円-50万円</option>
-                            <option value="506">50万円-60万円</option>
-                            <option value="607">60万円-70万円</option>
-                            <option value="708">70万円-80万円</option>
-                            <option value="809">80万円-90万円</option>
-                            <option value="900">90万円-100万円</option>
-                            <option value="909">100万円以上</option>
+                            {MucLuong.map(type => {
+                                return (
+                                    <>
+                                        <option value={type.name}>{type.name}</option>
+                                    </>
+                                )
+                            })}
                         </select>
                     </div>
                     <div className='gui-CV'>
@@ -181,9 +267,9 @@ const PersonalInfo = () => {
                         </label>
                     </div>
                     <div className='ghi-chu'>
-                        <label>ノート</label>
+                        <label>PR</label>
                         <textarea
-                            onChange={e => setGhiChu(e.target.value)}
+                            onChange={e => setPR(e.target.value)}
                             name=""
                             id=""
                             cols="30"

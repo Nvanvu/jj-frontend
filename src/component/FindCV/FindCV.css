@@ -48,44 +48,54 @@
     line-height: 35px;
 }
 
-.f-sp-1 {
+.f-ho {
     margin-left: 78px;
     width: 70px;
 }
 
-.f-sp-7 {
+.f-ho-s {
     margin-left: 15px;
     width: 70px;
 }
 
-.f-sp-2,
-.f-sp-8 {
+.f-ten,
+.f-ten-s {
     width: 120px;
 }
 
-.f-sp-3,
-.f-sp-9 {
+.f-trinhdo,
+.f-trinhdo-s {
     width: 100px;
 }
 
-.f-sp-4,
-.f-sp-10 {
+.f-chuyennganh,
+.f-chuyennganh-s {
     width: 100px;
 }
 
-.f-sp-5,
-.f-sp-11 {
+.f-kinhnghiem,
+.f-kinhnghiem-s {
+    width: 90px;
+}
+
+.f-congviecungtuyen,
+.f-congviecungtuyen-s {
+    width: 130px;
+}
+
+.f-vitri,
+.f-vitri-s {
     width: 120px;
 }
 
-.f-sp-6,
-.f-sp-12 {
-    width: 250px;
+.f-mucluong,
+.f-mucluong-s {
+    width: 120px;
 }
 
-.f-sp-13,
-.f-sp-14 {
-    width: 120px;
+.f-ngaydang,
+.f-ngaydang-s {
+    width: 200px;
 }
 
 
