@@ -4,16 +4,110 @@
 }
 
 .find-cv-content {
+    width: 100%;
+    height: 100%;
     margin-top: 50px;
     margin-bottom: 100px;
 }
 
-.find-command {
-    width: 100%;
-    height: 100px;
+.find-border {
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
+}
+
+.find-command {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.find-ChuyenNganh,
+.find-kinhnghiem,
+.find-ViTri,
+.find-CongViecUngTuyen,
+.find-MucLuong {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0 5px 0;
+}
+
+.find-MucLuong>label,
+.find-CongViecUngTuyen>label,
+.find-ViTri>label,
+.find-ChuyenNganh>label,
+.find-kinhnghiem>label {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: rebeccapurple;
+}
+
+.find-MucLuong>select,
+.find-CongViecUngTuyen>select,
+.find-ViTri>select,
+.find-ChuyenNganh>select,
+.find-kinhnghiem>select {
+    width: 300px;
+    height: 30px;
+    outline: none;
+    border: 1px solid rgb(252, 207, 156);
+    color: rgb(121, 59, 8);
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 0 0 0 20px;
+}
+
+.find-MucLuong>select:hover,
+.find-CongViecUngTuyen>select:hover,
+.find-ChuyenNganh>select:hover,
+.find-kinhnghiem>select:hover,
+.find-ViTri>select:hover {
+    cursor: pointer;
+    background-color: aliceblue;
+}
+
+.find-MucLuong>select option,
+.find-CongViecUngTuyen>select option,
+.find-ChuyenNganh>select option,
+.find-kinhnghiem>select option,
+.find-ViTri>select option {
+    background-color: aliceblue;
+    color: rgb(121, 59, 8);
+}
+
+.find-btn-sreach {
+    width: auto;
+}
+
+.find-btn-sreach>div {
+    width: 100%;
+    margin: 0 0 0 40px;
+}
+
+.find-btn-sreach>div>button {
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 12px;
+    border: 1px solid rgb(245, 166, 77);
+    box-shadow: 0 6px rgb(228, 223, 220);
+    position: relative;
+    outline: none;
+    cursor: pointer;
+}
+
+.find-btn-sreach>div>button:hover {
+    box-shadow: 0 4px rgb(133, 129, 123);
+    top: 2px;
+}
+
+.find-btn-sreach>div>button:active {
+    top: 6px;
+    box-shadow: 0 0;
 }
 
 .find-title,
@@ -179,11 +273,11 @@
 
 .find-btn>div>button:hover {
     cursor: pointer;
+    box-shadow: 0 4px rgb(175, 174, 172);
     top: 2px;
-    box-shadow: 0 4px;
 }
 
 .find-btn>div>button:active {
     top: 6px;
-    box-shadow: 0;
+    box-shadow: 0 0;
 }

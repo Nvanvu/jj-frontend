@@ -7,7 +7,6 @@ import {
     faGear,
     faCircleInfo,
     faHouseUser,
-    faBuildingUser,
     faHandshakeSimple
 } from '@fortawesome/free-solid-svg-icons';
 import { logout } from '../../Redux/authSlice';

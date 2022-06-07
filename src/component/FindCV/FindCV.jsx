@@ -9,46 +9,160 @@ const FindCV = () => {
     const user = useSelector(state => state.auth.user);
     const [listCV, setListCV] = useState([]);
 
-    const typeIndustry = [
-        { name: 'IT' },
-        { name: '水産' },
-        { name: '化学' },
-        { name: 'ゴム製品' },
-        { name: 'ガラス' },
-        { name: '機械' },
-        { name: '経済' }
+    const BangCap = [
+        { name: '大学卒' },
+        { name: '短期大学卒' },
+        { name: '専門学校卒' },
+        { name: '他' }
     ]
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
+    const ChuyenNganh = [
+        { name: 'IT' },
+        { name: 'ゴム製品' },
+        { name: '産業用電力' },
+        { name: '機械' },
+        { name: '化学' },
+        { name: '農業' },
+        { name: '経済' },
+        { name: '銀行サービス' },
+        { name: '他の専攻' },
+    ]
+    const KinhNghiem = [
+        { name: '不経験' },
+        { name: '1-2年' },
+        { name: '3-4年' },
+        { name: '5-6年' },
+        { name: '7-8年' },
+        { name: '9-10年' },
+        { name: '11年以上' },
+    ]
+    const CongViecUngTuyen = [
+        { name: 'IT' },
+        { name: 'ゴム製品' },
+        { name: '産業用電力' },
+        { name: '機械' },
+        { name: '化学' },
+        { name: '農業' },
+        { name: '経済' },
+        { name: '銀行サービス' },
+        { name: '他の専攻' },
+    ]
+    const ViTri = [
+        { name: 'アルバイト' },
+        { name: '実習生' },
+        { name: '社員' },
+        { name: '課長' },
+        { name: '部長' },
+        { name: '社長' },
+        { name: '他の役職' },
+    ]
+    const MucLuong = [
+        { name: '10万円' },
+        { name: '10万円-20万円' },
+        { name: '20万円-30万円' },
+        { name: '30万円-40万円' },
+        { name: '40万円-50万円' },
+        { name: '50万円-60万円' },
+        { name: '60万円-70万円' },
+        { name: '70万円-80万円' },
+        { name: '80万円-90万円' },
+        { name: '90万円-100万円' },
+        { name: '100万円以上' },
+    ]
     const getAllCV = async () => {
         setListCV(await findCV(user?.accessToken, navigate));
     }
     useEffect(() => {
         getAllCV();
     }, []);
+
+    const handleChoseCV = (e) => {
+        e.preventDefault();
+    }
+    const handleCommanSubmit = (e) => {
+        e.preventDefault();
+    }
     return (
         <div className='find-cv'>
             <div className='find-cv-content'>
-                <form onSubmit={e => handleSubmit(e)}>
-                    <div className='find-command'>
-                        {typeIndustry.map(type => {
-                            return (
-                                <label className='l-find'>
-                                    <input
-                                        key={type.name}
-                                        name={type.name}
-                                        className='inp-find' value={type.name}
-                                        type='checkbox'
-                                    />
-                                    <i className='i-find'></i>{type.name}
-                                </label>
-                            )
-                        })}
+                <form onSubmit={e => handleCommanSubmit(e)}>
+                    <div className='find-border'>
+                        <div className='find-command'>
+                            <div className='find-ChuyenNganh'>
+                                <label>専攻</label>
+                                <select>
+                                    <option selected disabled>専攻を選択して下さい</option>
+                                    {ChuyenNganh.map(type => {
+                                        return (
+                                            <>
+                                                <option value={type.name}>{type.name}</option>
+                                            </>
+                                        )
+                                    })}
+                                </select>
+                            </div>
+
+                            <div className='find-kinhnghiem'>
+                                <label>経験年数</label>
+                                <select>
+                                    <option selected disabled>経験年数を選択して下さい</option>
+                                    {KinhNghiem.map(type => {
+                                        return (
+                                            <>
+                                                <option value={type.name}>{type.name}</option>
+                                            </>
+                                        )
+                                    })}
+                                </select>
+                            </div>
+                            <div className='find-CongViecUngTuyen'>
+                                <label>職種応募</label>
+                                <select>
+                                    <option selected disabled>職種を選択して下さい</option>
+                                    {CongViecUngTuyen.map(type => {
+                                        return (
+                                            <>
+                                                <option value={type.name}>{type.name}</option>
+                                            </>
+                                        )
+                                    })}
+                                </select>
+                            </div>
+                            <div className='find-ViTri'>
+                                <label>役職</label>
+                                <select>
+                                    <option selected disabled>役職を選択して下さい</option>
+                                    {ViTri.map(type => {
+                                        return (
+                                            <>
+                                                <option value={type.name}>{type.name}</option>
+                                            </>
+                                        )
+                                    })}
+                                </select>
+                            </div>
+                            <div className='find-MucLuong'>
+                                <label>給料</label>
+                                <select>
+                                    <option selected disabled>給料を選択して下さい</option>
+                                    {MucLuong.map(type => {
+                                        return (
+                                            <>
+                                                <option value={type.name}>{type.name}</option>
+                                            </>
+                                        )
+                                    })}
+                                </select>
+                            </div>
+
+                        </div>
+                        <div className='find-btn-sreach'>
+                            <div>
+                                <button>検索</button>
+                            </div>
+                        </div>
                     </div>
                 </form>
-                <form>
+                <form onSubmit={e => handleChoseCV(e)}>
                     <div className='find-title'>
                         <div>
                             <span className='f-ho'>Ho</span>
