@@ -58,7 +58,6 @@ export const uploadFileToCloud = async(formData) => {
 }
 
 export const createUserInfo = async(newInfor, token, navigeta) => {
-    console.log('toi day');
     try {
         await axios({
             url: "/v4/create-user-personal-information",

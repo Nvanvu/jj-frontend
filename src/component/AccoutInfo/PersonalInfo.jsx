@@ -6,7 +6,10 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import request from '../../Api/request';
 import { createUserInfo } from '../../Redux/apiRequest';
-import { type } from '@testing-library/user-event/dist/type';
+import {
+    faBackward,
+    faCircleExclamation,
+} from '@fortawesome/free-solid-svg-icons';
 
 
 const PersonalInfo = () => {
@@ -134,8 +137,97 @@ const PersonalInfo = () => {
     }
 
 
+    const [error1, setError1] = useState('');
+    const [error2, setError2] = useState('');
+    const [error3, setError3] = useState('');
+    const [error4, setError4] = useState('');
+    const [error5, setError5] = useState('');
+    const [error6, setError6] = useState('');
+    const [error7, setError7] = useState('');
+    const [error8, setError8] = useState('');
+    const [error9, setError9] = useState('');
+    const [error10, setError10] = useState('');
+    const [error11, setError11] = useState('');
+    const [error12, setError12] = useState('');
+
+    const showError = () => {
+        return (
+            <FontAwesomeIcon icon={faCircleExclamation} />
+        )
+    }
     const hanldeSubmit = async (e) => {
         e.preventDefault();
+        if (!ho) {
+            setError1(showError());
+            return false;
+        }
+        else {
+            setError1('');
+        }
+        if (!ten) {
+            setError2(showError());
+            return false;
+        } else {
+            setError2('');
+        }
+        if (!bangCapCaoNhat) {
+            setError3(showError());
+            return false;
+        } else {
+            setError3('');
+        }
+        if (!chuyenNganh) {
+            setError4(showError());
+            return false;
+        } else {
+            setError4('');
+        } if (!kinhNghiemLamViec) {
+            setError5(showError());
+            return false;
+        } else {
+            setError5('');
+        }
+        if (!congViecUngTuyen) {
+            setError6(showError());
+            return false;
+        } else {
+            setError6('');
+        }
+        if (!viTriUngTuyen) {
+            setError7(showError());
+            return false;
+        } else {
+            setError7('');
+        } if (!mucLuongMongMuon) {
+            setError8(showError());
+            return false;
+        } else {
+            setError8('');
+        }
+        if (!file) {
+            setError9(showError());
+            return false;
+        } else {
+            setError9('');
+        }
+        if (!PR) {
+            setError10(showError());
+            return false;
+        } else {
+            setError10('');
+        }
+        if (baoMatThongTin.length === 0) {
+            setError11(showError());
+            return false;
+        } else {
+            setError11('');
+        }
+        if (dieuKhoanSuDung.length === 0) {
+            setError12(showError());
+            return false;
+        } else {
+            setError12('');
+        }
         const fileCV = await uploadFile(file);
         const newPersonalInfo = {
             ho,
@@ -162,14 +254,22 @@ const PersonalInfo = () => {
                 </div>
                 <form onSubmit={(e) => hanldeSubmit(e)}>
                     <div className='ho-ten'>
-                        <label >姓<input type="text" onChange={e => setHo(e.target.value)} /></label>
-                        <label >名<input type="text" onChange={e => setTen(e.target.value)} /></label>
+                        <label >
+                            姓
+                            <input type="text" onChange={e => setHo(e.target.value)} />
+                            <span className='per-error'>{error1}</span>
+                        </label>
+                        <label >
+                            名
+                            <input type="text" onChange={e => setTen(e.target.value)} />
+                            <span className='per-error'>{error2}</span>
+                        </label>
                     </div>
                     <div className='dia-chi-mail'>
                         <label>メールアドレス<span>{user?.username}</span></label>
                     </div>
                     <div className='bac-hoc-cao-nhat'>
-                        <label>最終学歴</label>
+                        <label>最終学歴 &nbsp; &nbsp;<span className='per-error'>{error3}</span></label>
                         <select onChange={e => setBangCapCaoNhat(e.target.value)}>
                             <option selected disabled>最終学歴を選択して下さい</option>
                             {BangCap.map(type => {
@@ -182,7 +282,7 @@ const PersonalInfo = () => {
                         </select>
                     </div>
                     <div className='chuyen-nganh'>
-                        <label>専攻</label>
+                        <label>専攻&nbsp; &nbsp;<span className='per-error'>{error4}</span></label>
                         <select onChange={e => setChuyenNganh(e.target.value)}>
                             <option selected disabled>専攻を選択して下さい</option>
                             {ChuyenNganh.map(type => {
@@ -196,7 +296,7 @@ const PersonalInfo = () => {
                         </select>
                     </div>
                     <div className='kinh-nghiem'>
-                        <label>経験年数</label>
+                        <label>経験年数&nbsp; &nbsp;<span className='per-error'>{error5}</span></label>
                         <select onChange={e => setKinhNghiemLamViec(e.target.value)}>
                             <option selected disabled>経験年数を選択して下さい</option>
                             {
@@ -210,7 +310,7 @@ const PersonalInfo = () => {
                             }                        </select>
                     </div>
                     <div className='cong-viec-ung-tuyen'>
-                        <label>職種応募</label>
+                        <label>職種応募&nbsp; &nbsp;<span className='per-error'>{error6}</span></label>
                         <select onChange={e => setCongViecUngTuyen(e.target.value)}>
                             <option selected disabled>職種を選択して下さい</option>
                             {
@@ -225,7 +325,7 @@ const PersonalInfo = () => {
                         </select>
                     </div>
                     <div className='vi-tri'>
-                        <label>役職</label>
+                        <label>役職 &nbsp; &nbsp;<span className='per-error'>{error7}</span></label>
                         <select onChange={e => setViTriUngTuyen(e.target.value)}>
                             <option selected disabled>役職を選択して下さい</option>
                             {
@@ -240,7 +340,7 @@ const PersonalInfo = () => {
                         </select>
                     </div>
                     <div className='muc-luong'>
-                        <label>給料希望</label>
+                        <label>給料希望 &nbsp; &nbsp;<span className='per-error'>{error8}</span></label>
                         <select onChange={e => setMucLuongMongMuon(e.target.value)}>
                             <option selected disabled>給料希望を選択して下さい</option>
                             {MucLuong.map(type => {
@@ -253,7 +353,7 @@ const PersonalInfo = () => {
                         </select>
                     </div>
                     <div className='gui-CV'>
-                        <label>履歴書を添付して下さい</label>
+                        <label>履歴書を添付して下さい &nbsp; &nbsp;<span className='per-error'>{error9}</span></label>
                         <div>
                             <label>
                                 <span>ファイルを選択 </span> &nbsp;
@@ -267,7 +367,7 @@ const PersonalInfo = () => {
                         </label>
                     </div>
                     <div className='ghi-chu'>
-                        <label>PR</label>
+                        <label>PR &nbsp; &nbsp;<span className='per-error'>{error10}</span></label>
                         <textarea
                             onChange={e => setPR(e.target.value)}
                             name=""
@@ -280,8 +380,16 @@ const PersonalInfo = () => {
                     </div>
                     <div className='cam-ket'>
                         <label>利用規約と個人情報保護方針をお読み頂き、同意の上ご登録下さい</label>
-                        <label ><input type="checkbox" value='dong y' onChange={(e) => handleCheck1(e.target.value)} /><i></i> 利用規約</label>
-                        <label ><input type="checkbox" value='dong y' onChange={(e) => handleCheck2(e.target.value)} /><i></i> 個人情報保護方針</label>
+                        <label >
+                            <input type="checkbox" value='dong y' onChange={(e) => handleCheck1(e.target.value)} />
+                            <i></i>
+                            個人情報保護方針 &nbsp; &nbsp;<span className='per-error'>{error11}</span>
+                        </label>
+                        <label >
+                            <input type="checkbox" value='dong y' onChange={(e) => handleCheck1(e.target.value)} />
+                            <i></i>
+                            利用規約&nbsp; &nbsp;<span className='per-error'>{error12}</span>
+                        </label>
                     </div>
                     <div className='gui-thong-tin'>
                         <button>CLICK</button>
