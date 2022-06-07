@@ -14,16 +14,16 @@ export const createJob = async(newJob, token, navigate) => {
     }
 }
 
-export const findCV = async(query, token) => {
+export const findCV = async(token, navigate) => {
     try {
         const res = await requset({
-            url: '/v4/find-cv',
-            method: 'POST',
-            query: { query },
+            url: '/v4/find-all-cv',
+            method: 'GET',
             headers: { authToken: `joinjapan ${token}` }
         })
         return res.data;
     } catch (error) {
-        alert('System is busy at the mumount. Please try again later.');
+        alert('System is busy at the moment. Please try again later.');
+        navigate('/');
     }
 }
