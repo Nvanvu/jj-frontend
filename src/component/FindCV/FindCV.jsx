@@ -19,6 +19,9 @@ const FindCV = () => {
         { name: '経済' }
     ]
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
     const getAllCV = async () => {
         setListCV(await findCV(user?.accessToken, navigate));
     }
@@ -28,7 +31,7 @@ const FindCV = () => {
     return (
         <div className='find-cv'>
             <div className='find-cv-content'>
-                <form>
+                <form onSubmit={e => handleSubmit(e)}>
                     <div className='find-command'>
                         {typeIndustry.map(type => {
                             return (
@@ -86,10 +89,12 @@ const FindCV = () => {
                             </>
                         )
                     })}
-                    <div>
-                        <button>
-                            CHON
-                        </button>
+                    <div className='find-btn'>
+                        <div>
+                            <button>
+                                CHON
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
