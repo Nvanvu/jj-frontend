@@ -56,35 +56,37 @@ const Search = () => {
             <div className='job-list-content'>
                 {postData?.data.map(post => (
                     <div key={post._id} className='job-list-1'>
-                        <span>{post.companyName}</span>
-                        <div className='job-list-2'>
-                            <label>
-                                <span>雇用形態:</span> &nbsp;&nbsp;
-                                {post.contractTypes.map(a => (
-                                    <span key={a}>{a} &nbsp; &nbsp;</span>
-                                ))}
-                            </label>
-                            <label>
-                                <span>勤務地:</span> &nbsp;&nbsp;
-                                {post.workAddress.map(a => (
-                                    <span key={a}>{a}&nbsp;&nbsp;</span>
-                                ))
-                                }
-                            </label>
-                            <label>
-                                <span>業種:</span> &nbsp;&nbsp;
-                                {post.typeIndustry.map(a => (
-                                    <span key={a}>{a}&nbsp;&nbsp;</span>
-                                ))
-                                }
-                            </label>
-                            <label>
-                                <span>給料:</span> &nbsp;&nbsp;
-                                {post.salary}&nbsp;円
-                            </label>
-                        </div>
-                        <div className='job-list-3'>
-                            {post.preface}
+                        <div>
+                            <span className='job-list-2'>{post.companyName}</span>
+                            <div className='job-list-3'>
+                                <label>
+                                    <span>雇用形態 :</span> &nbsp;&nbsp;
+                                    {post.contractTypes.map(a => (
+                                        <span key={a}>{a} &nbsp; &nbsp;</span>
+                                    ))}
+                                </label>
+                                <label>
+                                    <span>勤務地 :</span> &nbsp;&nbsp;
+                                    {post.workAddress.map(a => (
+                                        <span key={a}>{a}&nbsp;&nbsp;</span>
+                                    ))
+                                    }
+                                </label>
+                                <label>
+                                    <span>業種 :</span> &nbsp;&nbsp;
+                                    {post.typeIndustry.map(a => (
+                                        <span key={a}>{a}&nbsp;&nbsp;</span>
+                                    ))
+                                    }
+                                </label>
+                                <label>
+                                    <span>給料 :</span> &nbsp;&nbsp;
+                                    {post.salary}&nbsp;円
+                                </label>
+                            </div>
+                            <div className='job-list-4'>
+                                {post.preface}
+                            </div>
                         </div>
 
                     </div>
