@@ -24,6 +24,7 @@
     flex-direction: column;
 }
 
+.find-BangCap,
 .find-ChuyenNganh,
 .find-kinhnghiem,
 .find-ViTri,
@@ -34,6 +35,7 @@
     margin: 5px 0 5px 0;
 }
 
+.find-BangCap>label,
 .find-MucLuong>label,
 .find-CongViecUngTuyen>label,
 .find-ViTri>label,
@@ -46,6 +48,7 @@
     color: rebeccapurple;
 }
 
+.find-BangCap>select,
 .find-MucLuong>select,
 .find-CongViecUngTuyen>select,
 .find-ViTri>select,
@@ -61,6 +64,7 @@
     padding: 0 0 0 20px;
 }
 
+.find-BangCap>select:hover,
 .find-MucLuong>select:hover,
 .find-CongViecUngTuyen>select:hover,
 .find-ChuyenNganh>select:hover,
@@ -70,6 +74,7 @@
     background-color: aliceblue;
 }
 
+.find-BangCap>select option,
 .find-MucLuong>select option,
 .find-CongViecUngTuyen>select option,
 .find-ChuyenNganh>select option,

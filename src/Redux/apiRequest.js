@@ -30,9 +30,9 @@ export const registerUser = async(user, navigeta) => {
     }
 }
 
-export const createCompanyName = async(companyName, token, dispatch, navigeta) => {
+export const createCompanyName = async(companyName, token, navigeta) => {
     try {
-        const res = await axios.post('/v4/register/new-company-name', companyName, {
+        await axios.post('/v4/register/new-company-name', companyName, {
             headers: { authToken: `joinjapan ${token}` }
         });
         // dispatch(createCompnay(res.data));

@@ -1,13 +1,21 @@
+import './FindCV.css';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import './FindCV.css';
 import { findCV } from '../../Redux/companyRequest';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const FindCV = () => {
     const navigate = useNavigate();
     const user = useSelector(state => state.auth.user);
+    const [searchParams, setSearchParams] = useSearchParams();
     const [listCV, setListCV] = useState([]);
+
+    const [bangCap, setBangCap] = useState('');
+    const [chuyenNganh, setChuyenNganh] = useState('');
+    const [kinhNghiem, setKinhnghiem] = useState('');
+    const [congViecUngTuyen, setCongViecUngTuyen] = useState('');
+    const [viTri, setViTri] = useState('');
+    const [mucLuong, setMucLuong] = useState('');
 
     const BangCap = [
         { name: '大学卒' },
@@ -68,6 +76,7 @@ const FindCV = () => {
         { name: '90万円-100万円' },
         { name: '100万円以上' },
     ]
+
     const getAllCV = async () => {
         setListCV(await findCV(user?.accessToken, navigate));
     }
@@ -78,8 +87,11 @@ const FindCV = () => {
     const handleChoseCV = (e) => {
         e.preventDefault();
     }
+    const searchCommand = async () => {
+    }
     const handleCommanSubmit = (e) => {
         e.preventDefault();
+
     }
     return (
         <div className='find-cv'>
@@ -87,9 +99,22 @@ const FindCV = () => {
                 <form onSubmit={e => handleCommanSubmit(e)}>
                     <div className='find-border'>
                         <div className='find-command'>
+                            <div className='find-BangCap'>
+                                <label>最終学歴 </label>
+                                <select onChange={e => setBangCap(e.target.value)}>
+                                    <option selected disabled>最終学歴を選択して下さい</option>
+                                    {BangCap.map(type => {
+                                        return (
+                                            <>
+                                                <option value={type.name}>{type.name}</option>
+                                            </>
+                                        )
+                                    })}
+                                </select>
+                            </div>
                             <div className='find-ChuyenNganh'>
                                 <label>専攻</label>
-                                <select>
+                                <select onChange={e => setChuyenNganh(e.target.value)}>
                                     <option selected disabled>専攻を選択して下さい</option>
                                     {ChuyenNganh.map(type => {
                                         return (
@@ -103,7 +128,7 @@ const FindCV = () => {
 
                             <div className='find-kinhnghiem'>
                                 <label>経験年数</label>
-                                <select>
+                                <select onChange={e => setKinhnghiem(e.target.value)}>
                                     <option selected disabled>経験年数を選択して下さい</option>
                                     {KinhNghiem.map(type => {
                                         return (
@@ -116,7 +141,7 @@ const FindCV = () => {
                             </div>
                             <div className='find-CongViecUngTuyen'>
                                 <label>職種応募</label>
-                                <select>
+                                <select onChange={e => setCongViecUngTuyen(e.target.value)}>
                                     <option selected disabled>職種を選択して下さい</option>
                                     {CongViecUngTuyen.map(type => {
                                         return (
@@ -129,7 +154,7 @@ const FindCV = () => {
                             </div>
                             <div className='find-ViTri'>
                                 <label>役職</label>
-                                <select>
+                                <select onChange={e => setViTri(e.target.value)}>
                                     <option selected disabled>役職を選択して下さい</option>
                                     {ViTri.map(type => {
                                         return (
@@ -142,7 +167,7 @@ const FindCV = () => {
                             </div>
                             <div className='find-MucLuong'>
                                 <label>給料</label>
-                                <select>
+                                <select onChange={e => setMucLuong(e.target.value)}>
                                     <option selected disabled>給料を選択して下さい</option>
                                     {MucLuong.map(type => {
                                         return (

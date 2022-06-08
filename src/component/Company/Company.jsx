@@ -1,13 +1,11 @@
 import { useSelector } from 'react-redux';
 import './Company.css';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { createCompanyName } from '../../Redux/apiRequest';
 
 
 const Company = () => {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const User = useSelector(state => state.auth.user);
     const [companyName, setCompanyName] = useState('');
@@ -19,8 +17,7 @@ const Company = () => {
         }
         createCompanyName(
             newCompanyName,
-            User.accessToken,
-            dispatch,
+            User.accessToken,            
             navigate
         );
     }

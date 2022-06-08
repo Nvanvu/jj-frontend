@@ -4,11 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from '../../Api/request';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faBackward,
-    faCircleExclamation,
-} from '@fortawesome/free-solid-svg-icons';
+import { faBackward } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import showError from '../errorIcon/showError';
 
 
 const Company = () => {
@@ -49,7 +47,7 @@ const Company = () => {
         { name: '昇給' }
     ]
     const [preface, setPreface] = useState('');
-    const [CompanyName, setCompanyName] = useState('');
+    const [CompanyId, setCompanyId] = useState('');
     const [company, setCompany] = useState('');
 
     const [contractTypesNote, setContractTypesNote] = useState('');
@@ -102,16 +100,27 @@ const Company = () => {
         return [...prevState, newValue]
     }
 
+    const getCompanyName = async (CompanyId) => {
+        const res = await axios({
+            url: '/v4/get-company',
+            method: 'GET',
+            CompanyId
+        })
+        console.log(CompanyId)
+        console.log(res.data)
+        console.log(res.data.companyName);
+        return res.data.companyName;
+    }
 
     const getCompany = async (token) => {
         try {
             const res = await axios.get(
-                '/v4/get-company', {
+                '/v4/get-company-by-user-id', {
                 headers: {
                     authToken: `joinJapan ${token}`
                 }
             })
-            if (res.data.length === 0) {
+            if (res.data.length === 0 || res.data === null) {
                 navigate('/company');
 
             } else {
@@ -124,7 +133,7 @@ const Company = () => {
     }
     useEffect(() => {
         if (!user) {
-            navigate('/company');
+            navigate('/login');
         }
         getCompany(user?.accessToken);
     }, []);
@@ -144,18 +153,13 @@ const Company = () => {
         setTreatments(prevState => handleCheckBox(prevState, value));
     }
 
-    const handleGetCompanyName = companyName => {
-        setCompanyName(prevState => handleCheckBox(prevState, companyName))
+    const handleGetCompanyId = id => {
+        setCompanyId(prevState => handleCheckBox(prevState, id))
     }
 
-    const showError = () => {
-        return (
-            <FontAwesomeIcon icon={faCircleExclamation} />
-        )
-    }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (CompanyName.length === 0) {
+        if (CompanyId.length === 0) {
             setError1(showError());
             return false;
         } else {
@@ -234,6 +238,7 @@ const Company = () => {
         } else {
             setError13('');
         }
+        const comName = await getCompanyName(CompanyId);
         const newCompany = {
             preface,
             contractTypes,
@@ -252,8 +257,9 @@ const Company = () => {
             holidayVacation,
             requiredExperience,
             welcomeSkills,
-            notices,
-            createdByCompany: CompanyName
+            notices, 
+            companyName: comName,
+            createdByCompany: CompanyId
         };
         try {
             await axios.post('v4/create-job-information', newCompany, {
@@ -291,7 +297,7 @@ const Company = () => {
                                                             name={com.CompanyName}
                                                             className='inp-job'
                                                             type='checkbox'
-                                                            onChange={() => handleGetCompanyName(com._id)}
+                                                            onChange={() => handleGetCompanyId(com._id)}
                                                             value={com._id}
                                                         />
                                                         <i className='i-job' key={com._id + 'i'}></i>{com.companyName}

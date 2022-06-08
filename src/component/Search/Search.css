@@ -93,3 +93,41 @@
         margin: 10px 0 20px 0;
     }
 }
+
+.job-list-container {
+    width: 100%;
+    height: 100%;
+}
+
+.job-list-content {
+    margin: 20px 50px 50px 50px;
+}
+
+.job-list-1 {
+    border: 1px solid rgb(248, 215, 176);
+    margin: 10px 0 10px 0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.job-list-1>span {
+    font-size: 18px;
+    margin: 10px 0 10px;
+    color: rgb(201, 120, 14);
+    font-weight: bold;
+    background-color: aqua;
+}
+
+.job-list-2 {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.job-list-2>label {
+    margin: 0 0 5px 0;
+    display: flex;
+    flex-direction: row;
+}

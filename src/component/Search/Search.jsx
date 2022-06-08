@@ -1,10 +1,42 @@
 import './Search.css';
-
+import { useEffect, useState } from 'react';
+import request from '../../Api/request';
 const Search = () => {
+    const [postData, setPostData] = useState({
+        status: 'idle',
+        data: []
+    });
+    const fetchPosts = async () => {
+        try {
+            setPostData((preState) => ({
+                ...preState, status: 'loading'
+            }));
+            const res = await request.get('/v4/get-job');
+            if (res.success) {
+                setPostData({
+                    status: 'success',
+                    data: res.data
+                });
+
+            } else {
+                setPostData((preState) => ({
+                    ...preState, status: 'error'
+                }));
+            }
+        } catch (error) {
+            setPostData((preState) => ({ ...preState, status: 'error' }))
+        }
+    };
+
+    useEffect(() => {
+        fetchPosts();
+    }, [])
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
     }
-    return (
+    return (<>
         <form onSubmit={handleSubmit}>
             <div className='search'>
                 <div >
@@ -19,6 +51,49 @@ const Search = () => {
                 <button className='btn-search'>求人検索</button>
             </div>
         </form>
+
+        <div className='job-list-container'>
+            <div className='job-list-content'>
+                {console.log(postData)}
+                {postData?.data.map(post => (
+                    <div key={post._id} className='job-list-1'>
+                        <span>{post.companyName}</span>
+                        <div className='job-list-2'>
+                            <label>
+                                <span>雇用形態:</span> &nbsp;&nbsp;
+                                {post.contractTypes.map(a => (
+                                    <span key={a}>{a} &nbsp; &nbsp;</span>
+                                ))}
+                            </label>
+                            <label>
+                                <span>勤務地:</span> &nbsp;&nbsp;
+                                {post.workAddress.map(a => (
+                                    <span key={a}>{a}&nbsp;&nbsp;</span>
+                                ))
+                                }
+                            </label>
+                            <label>
+                                <span>業種:</span> &nbsp;&nbsp;
+                                {post.typeIndustry.map(a => (
+                                    <span key={a}>{a}&nbsp;&nbsp;</span>
+                                ))
+                                }
+                            </label>
+                            <label>
+                                <span>給料:</span> &nbsp;&nbsp;
+                                {post.salary}&nbsp;円
+                            </label>
+                        </div>
+                        <div className='job-list-3'>
+                            {post.preface}
+                        </div>
+
+                    </div>
+                ))}
+            </div>
+        </div>
+    </>
+
     )
 }
 export default Search;
