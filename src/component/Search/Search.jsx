@@ -54,7 +54,6 @@ const Search = () => {
 
         <div className='job-list-container'>
             <div className='job-list-content'>
-                {console.log(postData)}
                 {postData?.data.map(post => (
                     <div key={post._id} className='job-list-1'>
                         <span>{post.companyName}</span>
