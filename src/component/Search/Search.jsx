@@ -56,8 +56,8 @@ const Search = () => {
             <div className='job-list-content'>
                 {postData?.data.map(post => (
                     <div key={post._id} className='job-list-1'>
+                        <span className='job-list-2'>{post.companyName}</span>
                         <div>
-                            <span className='job-list-2'>{post.companyName}</span>
                             <div className='job-list-3'>
                                 <label>
                                     <span>雇用形態 :</span> &nbsp;&nbsp;
@@ -84,6 +84,7 @@ const Search = () => {
                                     {post.salary}&nbsp;円
                                 </label>
                             </div>
+                            <br />
                             <div className='job-list-4'>
                                 {post.preface}
                             </div>
