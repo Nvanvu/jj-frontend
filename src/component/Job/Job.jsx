@@ -100,17 +100,13 @@ const Company = () => {
         return [...prevState, newValue]
     }
 
-    const getCompanyName = async (companyId) => {
-        console.log(companyId)
-        const res = await axios({
-            url: '/v4/get-company',
-            method: 'get',
-            companyId
-        })
+    const getCompanyName = async (userId) => {
+        console.log(userId)
+        const res = await axios.get('/v4/get-company', { params: { 'createdByUSer': userId } })
 
         console.log(res);
-        console.log(res.data?.companyName);
-        return res.data?.companyName;
+        console.log(res.data[0]?.companyName);
+        return res.data[0]?.companyName;
     }
 
     const getCompany = async (token) => {
@@ -239,7 +235,7 @@ const Company = () => {
         } else {
             setError13('');
         }
-        const comName = await getCompanyName(companyId);
+        const comName = await getCompanyName(user.userId);
         const newCompany = {
             preface,
             contractTypes,
