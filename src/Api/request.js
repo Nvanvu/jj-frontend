@@ -5,7 +5,7 @@ const ins = axios.create({
 });
 
 ins.interceptors.request.use(function(config) {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('accessToken');
 
     if (!token) return config;
 

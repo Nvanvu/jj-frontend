@@ -104,12 +104,12 @@
 }
 
 .job-list-content {
-    width: 70%;
+    width: 64%;
     margin: 20px 50px 50px 50px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .job-list-1 {

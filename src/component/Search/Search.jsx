@@ -11,7 +11,7 @@ const Search = () => {
             setPostData((preState) => ({
                 ...preState, status: 'loading'
             }));
-            const res = await request.get('/v4/get-job');
+            const res = await request.get('/v4/get/job');
             if (res.success) {
                 setPostData({
                     status: 'success',

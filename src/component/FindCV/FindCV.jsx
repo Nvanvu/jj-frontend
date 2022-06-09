@@ -7,6 +7,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 const FindCV = () => {
     const navigate = useNavigate();
     const user = useSelector(state => state.auth.user);
+
     const [searchParams, setSearchParams] = useSearchParams();
     const [listCV, setListCV] = useState([]);
 

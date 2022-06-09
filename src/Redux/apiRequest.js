@@ -10,6 +10,7 @@ export const LoginUser = async(user, dispatch, navigeta) => {
             status: 'success',
             data: res.data
         }));
+        localStorage.setItem('accessToken', res.data.accessToken);
         navigeta('/');
     } catch (error) {
         dispatch(setUserInfo({
