@@ -47,7 +47,7 @@ const Company = () => {
         { name: '昇給' }
     ]
     const [preface, setPreface] = useState('');
-    const [CompanyId, setCompanyId] = useState('');
+    const [companyId, setCompanyId] = useState('');
     const [company, setCompany] = useState('');
 
     const [contractTypesNote, setContractTypesNote] = useState('');
@@ -100,16 +100,17 @@ const Company = () => {
         return [...prevState, newValue]
     }
 
-    const getCompanyName = async (CompanyId) => {
+    const getCompanyName = async (companyId) => {
+        console.log(companyId)
         const res = await axios({
             url: '/v4/get-company',
-            method: 'GET',
-            CompanyId
+            method: 'get',
+            companyId
         })
-        console.log(CompanyId)
-        console.log(res.data)
-        console.log(res.data.companyName);
-        return res.data.companyName;
+
+        console.log(res);
+        console.log(res.data?.companyName);
+        return res.data?.companyName;
     }
 
     const getCompany = async (token) => {
@@ -159,7 +160,7 @@ const Company = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (CompanyId.length === 0) {
+        if (companyId.length === 0) {
             setError1(showError());
             return false;
         } else {
@@ -238,7 +239,7 @@ const Company = () => {
         } else {
             setError13('');
         }
-        const comName = await getCompanyName(CompanyId);
+        const comName = await getCompanyName(companyId);
         const newCompany = {
             preface,
             contractTypes,
@@ -259,7 +260,7 @@ const Company = () => {
             welcomeSkills,
             notices, 
             companyName: comName,
-            createdByCompany: CompanyId
+            createdByCompany: companyId
         };
         try {
             await axios.post('v4/create-job-information', newCompany, {
@@ -269,7 +270,6 @@ const Company = () => {
             navigate('/');
         } catch (error) {
             alert('system is busy at the moment. please try again later.');
-            console.log(error);
             return '';
         }
     }
