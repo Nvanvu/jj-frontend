@@ -56,3 +56,9 @@
 .content-820>li>a:hover {
     color: rgb(250, 138, 26);
 }
+
+@media (max-width:540px) {
+    .navbar-820 {
+        display: none;
+    }
+}
