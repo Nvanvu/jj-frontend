@@ -6,12 +6,18 @@ import Admin from '../Admin/Admin';
 const Home = () => {
     const user = useSelector(state => state.auth.user);
     return (
-        <>{user?.role === 'admin' ? <>
-            <Admin/>
-        </> : <>
-            <div className='home'>
-                <Search />
-            </div></>}</>
+        <>
+            {
+                user?.role === 'admin' ?
+                    <><Admin /></>
+                    :
+                    <>
+                        <div className='home'>
+                            <Search />
+                        </div>
+                    </>
+            }
+        </>
     )
 }
 

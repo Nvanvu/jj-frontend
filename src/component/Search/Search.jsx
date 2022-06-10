@@ -6,12 +6,19 @@ const Search = () => {
         status: 'idle',
         data: []
     });
-    const fetchPosts = async () => {
+    const [workAddress, setWorkAddress] = useState('');
+    const [keyword, setKeyword] = useState('');
+    const fetchPosts = async (workAddress, keyword) => {
         try {
             setPostData((preState) => ({
                 ...preState, status: 'loading'
             }));
-            const res = await request.get('/v4/get/job');
+            const res = await request.get('/v4/sreach/jobs', {
+                params: {
+                    "workAddress": workAddress,
+                    "keyword": keyword,
+                }
+            });
             if (res.success) {
                 setPostData({
                     status: 'success',
@@ -32,20 +39,21 @@ const Search = () => {
         fetchPosts();
     }, [])
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
+        fetchPosts(workAddress, keyword);
+
     }
     return (<>
         <form onSubmit={handleSubmit}>
             <div className='search'>
                 <div >
                     <span>キーワード</span>
-                    <input type="text" placeholder='職種、キーワード、会社名など' />
+                    <input onChange={e => setKeyword(e.target.value)} type="text" placeholder='職種、キーワード、会社名など' />
                 </div>
                 <div>
                     <span>勤務地</span>
-                    <input type="text" placeholder='都道府県、市区町村、駅名' />
+                    <input onChange={e => setWorkAddress(e.target.value)} type="text" placeholder='都道府県、市区町村、駅名' />
                 </div>
 
                 <button className='btn-search'>求人検索</button>
@@ -54,6 +62,7 @@ const Search = () => {
 
         <div className='job-list-container'>
             <div className='job-list-content'>
+
                 {postData?.data.map(post => (
                     <div key={post._id} className='job-list-1'>
                         <span className='job-list-2'>{post.companyName}</span>
@@ -92,6 +101,7 @@ const Search = () => {
 
                     </div>
                 ))}
+
             </div>
         </div>
     </>
